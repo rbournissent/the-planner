@@ -2,13 +2,13 @@
 Todo:
   ✔ Init Angular App @done(23-10-03 09:47)
   ng new planner --routing
-  ☐ Add and configure Firebase (Hosting) @started(23-10-03 09:47)
+  ✔ Add and configure Firebase (Hosting) @started(23-10-03 09:47) @done(23-10-03 09:58) @lasted(11m13s)
     firebase init
-    ☐ Setup GH Actions
-    ☐ Customize domain
-  ☐ Setup linter
+    ✔ Setup GH Actions @done(23-10-03 09:58)
+    ✘ Customize domain @cancelled(23-10-03 09:59)
+  ✔ Setup linter @started(23-10-03 09:58) @done(23-10-03 10:06) @lasted(8m51s)
     ng lint
-  ☐ Add Tailwind
+  ✔ Add Tailwind @started(23-10-03 10:06) @done(23-10-03 10:10) @lasted(4m55s)
     npm i -D tailwindcss
     npx tailwindcss init
 
