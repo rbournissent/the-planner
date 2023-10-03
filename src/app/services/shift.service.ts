@@ -11,6 +11,8 @@ import { ShiftTemplateService } from './shift-template.service';
 import { ShiftsActions } from '../state/actions/shifts.actions';
 import { StoredShift } from '../models/stored-shift.model';
 import { selectShifts } from '../state/reducers';
+import { isSameDay } from '../utils/isSameDay';
+import { rangeConflict } from '../utils/rangeConflict';
 
 // TEMP
 const mockedShift:Shift = {
@@ -62,6 +64,10 @@ export class ShiftService {
             : [mockedShift]
         })
       )
+
+      this.shifts$.subscribe((shifts) => {
+        this.shifts = shifts
+      })
     } catch (e) {
       console.error(e);
     }
@@ -82,6 +88,14 @@ export class ShiftService {
         template
       }
     })
+  }
+
+  saveShift (shift: Shift) {
+    this.store.dispatch(
+      ShiftsActions.createShift({
+        shift
+      })
+    )
   }
 
   removeShift (id: number) {
@@ -106,5 +120,15 @@ export class ShiftService {
       start,
       end
     }
+  }
+
+  canBeSaved (shift: Shift): boolean {
+    return !this.shifts.some(s => {
+      // Find a shift at the same time range
+      return isSameDay(shift.date, s.date) &&
+        shift.employee.id === s.employee.id &&
+        (shift.template.id === s.template.id ||
+          rangeConflict(shift.template, s.template))
+    })
   }
 }
