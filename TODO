@@ -17,22 +17,22 @@ Todo:
     It provides week and day view, drag and drop support and some theme customization
     ✘ Or create a basic UI with 7 columns listing the shifts for each day (sorted by startTime) instead @cancelled(23-10-03 10:32)
 
-  ☐ Add NgRx
+  ✔ Add NgRx @started(23-10-03 10:48) @done(23-10-03 10:55) @lasted(7m59s)
     ng add @ngrx/store@latest --no-minimal
-  ☐ Define main models (Shift, ShiftTemplate and Employee)
-  ☐ Create a service to get employees
-    ☐ Define action and reducer
-  ☐ Create a service to get templates
-    ☐ Define action and reducer
-  ☐ Create a service to get and remove shifts
-    ☐ Map employees and templates inside shifts (join by id)
-    ☐ Define actions and reducer
+  ✔ Define main models (Shift, ShiftTemplate and Employee) @done(23-10-03 10:56)
+  ✔ Create a service to get employees @started(23-10-03 11:00) @done(23-10-03 11:25) @lasted(25m10s)
+    ✔ Define action and reducer @done(23-10-03 11:25)
+  ✔ Create a service to get templates @done(23-10-03 11:25)
+    ✔ Define action and reducer @done(23-10-03 11:25)
+  ✔ Create a service to get and remove shifts @done(23-10-03 12:35)
+    ✔ Map employees and templates inside shifts (join by id) @done(23-10-03 12:35)
+    ✔ Define actions and reducer @done(23-10-03 12:35)
 
-  ☐ Render shifts in the week view
-    ☐ Support remove shifts
+  ✔ Render shifts in the week view @started(23-10-03 12:35) @done(23-10-03 12:51) @lasted(16m58s)
+    ✔ Support remove shifts @started(23-10-03 12:52) @done(23-10-03 13:12) @lasted(20m33s)
 
-  ☐ Create Modal to plan a scheduled item (aka shift)
-    ☐ Use Overlay from Angular CDK
+  ✔ Create Modal to plan a scheduled item (aka shift) @started(23-10-03 13:12) @done(23-10-03 14:05) @lasted(53m)
+    ✔ Use Overlay from Angular CDK @started(23-10-03 13:12) @done(23-10-03 13:22) @lasted(10m35s)
 
   ☐ Deploy app to Firebase
 
@@ -40,6 +40,8 @@ Todo:
 
   -- NICE TO HAVE --
   ☐ Improve UI/UX (if needed)
+    ☐ Better UI for inputs in form
+    ☐ Validate form with inline messages below inputs
   ☐ Refactor code (if needed)
   ☐ Create a CRUD for Employees (new module)
     ☐ Define new actions and update reducer
