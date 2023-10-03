@@ -14,22 +14,6 @@ import { selectShifts } from '../state/reducers';
 import { isSameDay } from '../utils/isSameDay';
 import { rangeConflict } from '../utils/rangeConflict';
 
-// TEMP
-const mockedShift:Shift = {
-  id: 1,
-  date: new Date('2023-10-3'),
-  employee: {
-    id: 1,
-    name: 'Rodrigo'
-  },
-  template: {
-    id: 1,
-    name: 'Morning',
-    startTime: new Date('2023-10-03 8:30'),
-    endTime: new Date('2023-10-03 14:30')
-  }
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -61,12 +45,14 @@ export class ShiftService {
         ShiftsActions.fetchShifts({
           shifts: shifts
             ? this.parseShifts(JSON.parse(shifts))
-            : [mockedShift]
+            : []
         })
       )
 
       this.shifts$.subscribe((shifts) => {
         this.shifts = shifts
+        // Persist data when it gets updated
+        this.storeShifts(shifts)
       })
     } catch (e) {
       console.error(e);
@@ -93,6 +79,15 @@ export class ShiftService {
   saveShift (shift: Shift) {
     this.store.dispatch(
       ShiftsActions.createShift({
+        shift
+      })
+    )
+  }
+
+  editShift (id: number, shift: Shift) {
+    this.store.dispatch(
+      ShiftsActions.updateShift({
+        id,
         shift
       })
     )
@@ -130,5 +125,20 @@ export class ShiftService {
         (shift.template.id === s.template.id ||
           rangeConflict(shift.template, s.template))
     })
+  }
+
+  private storeShifts (shifts: ReadonlyArray<Shift>) {
+    const unparsedShifts: StoredShift[] = shifts
+      .map(shift => ({
+        id: shift.id,
+        date: shift.date + '',
+        employeeId: shift.employee.id,
+        templateId: shift.template.id
+      }))
+
+    localStorage.setItem(
+      ShiftService.STORAGE_KEY,
+      JSON.stringify(unparsedShifts)
+    )
   }
 }

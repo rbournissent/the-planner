@@ -15,6 +15,14 @@ export const shiftsReducer = createReducer(
       shift
     ]
   }),
+  on(ShiftsActions.updateShift, (state, { id, shift }): Shift[] => {
+    return state.map(s => {
+      if (s.id !== id) return s
+
+      // Replace current shift with the new one
+      return shift
+    })
+  }),
   on(ShiftsActions.deleteShift, (state, { id }): Shift[] => {
     return state.filter(e => e.id !== id)
   }),
