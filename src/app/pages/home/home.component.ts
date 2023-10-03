@@ -43,6 +43,20 @@ export class HomeComponent {
       left: 'prev,next today',
       center: 'title',
       right: 'timeGridDay,timeGridWeek'
-    }
+    },
+    buttonText: {
+      today: 'Today',
+      day: 'Day',
+      week: 'Week'
+    },
+    eventAllow: (droppedSpan, event) => {
+      if (!event || !event.start || !event.end) return false
+
+      const { start, end } = event
+
+      return droppedSpan.start.toTimeString() === start.toTimeString() &&
+        droppedSpan.end.toTimeString() === end.toTimeString()
+    },
+    dragRevertDuration: 150
   };
 }
