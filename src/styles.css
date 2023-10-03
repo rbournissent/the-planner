@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~@angular/cdk/overlay-prebuilt.css';
+
 @layer components {
   .btn-default,
   .btn-primary,
