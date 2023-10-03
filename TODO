@@ -12,8 +12,10 @@ Todo:
     npm i -D tailwindcss
     npx tailwindcss init
 
-  ☐ Find a library that provides a calendar view with week (and day) view support
-    ☐ Or create a basic UI with 7 columns listing the shifts for each day (sorted by startTime) instead
+  ✔ Find a library that provides a calendar view with week (and day) view support @started(23-10-03 10:11) @done(23-10-03 10:32) @lasted(21m48s)
+    Found FullCalendar with support for Angular: https://fullcalendar.io/docs/angular
+    It provides week and day view, drag and drop support and some theme customization
+    ✘ Or create a basic UI with 7 columns listing the shifts for each day (sorted by startTime) instead @cancelled(23-10-03 10:32)
 
   ☐ Add NgRx
     ng add @ngrx/store@latest --no-minimal
