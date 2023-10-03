@@ -8,11 +8,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { reducers } from './state/reducers';
+import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SvgIconComponent
   ],
   imports: [
     BrowserModule,
