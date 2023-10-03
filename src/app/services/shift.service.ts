@@ -93,9 +93,21 @@ export class ShiftService {
     )
   }
 
+  updateEmployee(currentEmployeeId: Employee['id'], newEmployee: Employee) {
+    this.store.dispatch(
+      ShiftsActions.updateEmployee({ currentEmployeeId, newEmployee })
+    )
+  }
+
   removeShift (id: number) {
     this.store.dispatch(
       ShiftsActions.deleteShift({ id })
+    )
+  }
+
+  removeByEmployee(id: Employee['id']) {
+    this.store.dispatch(
+      ShiftsActions.deleteShiftsByEmployee({ id })
     )
   }
 

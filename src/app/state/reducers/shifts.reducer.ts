@@ -26,4 +26,19 @@ export const shiftsReducer = createReducer(
   on(ShiftsActions.deleteShift, (state, { id }): Shift[] => {
     return state.filter(e => e.id !== id)
   }),
+  on(ShiftsActions.updateEmployee, (state, { currentEmployeeId, newEmployee}): Shift[] => {
+    return state.map(shift => {
+      if (shift.employee.id !== currentEmployeeId) {
+        return shift
+      }
+
+      return {
+        ...shift,
+        employee: newEmployee
+      }
+    })
+  }),
+  on(ShiftsActions.deleteShiftsByEmployee, (state, { id }): Shift[] => {
+    return state.filter(shift => shift.employee.id !== id)
+  }),
 );

@@ -30,8 +30,7 @@ export class EmployeesComponent {
     const newName = prompt('Name:', employee.name)
     if (newName) {
       const updatedEmployee = this.employeeService.update(employee.id, newName)
-      // TODO:
-      // this.shiftService.updateEmployee(employee.id, updatedEmployee)
+      this.shiftService.updateEmployee(employee.id, updatedEmployee)
     }
   }
 
@@ -41,8 +40,7 @@ export class EmployeesComponent {
     if (!hasShifts ||
       confirm('The shifts scheduled for this employee will be deleted too. Proceed?')) {
       this.employeeService.delete(id)
-      // TODO:
-      // this.shiftService.removeByEmployee(id)
+      this.shiftService.removeByEmployee(id)
     }
   }
 }
