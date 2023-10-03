@@ -9,4 +9,19 @@ export const templatesReducer = createReducer(
   on(ShiftTemplatesActions.fetchShiftTemplates, (_state, { templates }): ShiftTemplate[] => {
     return templates
   }),
+  on(ShiftTemplatesActions.createShiftTemplate, (state, { template }): ShiftTemplate[] => {
+    return [
+      ...state,
+      template
+    ]
+  }),
+  on(ShiftTemplatesActions.updateShiftTemplate, (state, { template }): ShiftTemplate[] => {
+    return [
+      ...state.filter(e => e.id !== template.id),
+      template
+    ]
+  }),
+  on(ShiftTemplatesActions.deleteShiftTemplate, (state, { id }): ShiftTemplate[] => {
+    return state.filter(e => e.id !== id)
+  })
 );

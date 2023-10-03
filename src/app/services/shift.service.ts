@@ -99,6 +99,12 @@ export class ShiftService {
     )
   }
 
+  updateTemplate(currentTemplateId: ShiftTemplate['id'], newTemplate: ShiftTemplate) {
+    this.store.dispatch(
+      ShiftsActions.updateTemplate({ currentTemplateId, newTemplate })
+    )
+  }
+
   removeShift (id: number) {
     this.store.dispatch(
       ShiftsActions.deleteShift({ id })
@@ -108,6 +114,12 @@ export class ShiftService {
   removeByEmployee(id: Employee['id']) {
     this.store.dispatch(
       ShiftsActions.deleteShiftsByEmployee({ id })
+    )
+  }
+
+  removeByTemplate(id: ShiftTemplate['id']) {
+    this.store.dispatch(
+      ShiftsActions.deleteShiftsByTemplate({ id })
     )
   }
 
@@ -142,6 +154,12 @@ export class ShiftService {
   employeeHasShifts (employeeId: Employee['id']): boolean {
     return this.shifts.some(s => {
       return s.employee.id === employeeId
+    })
+  }
+
+  templateHasShifts (templateId: ShiftTemplate['id']): boolean {
+    return this.shifts.some(s => {
+      return s.template.id === templateId
     })
   }
 

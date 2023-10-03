@@ -5,6 +5,13 @@ export interface ShiftTemplate {
   endTime: Date
 }
 
+export type ShiftTemplateData = Omit<ShiftTemplate, 'id'>
+
+export interface ShiftTemplateEdit extends Omit<ShiftTemplate, 'id' | 'startTime' | 'endTime'> {
+  startTime: string
+  endTime: string
+}
+
 export const UnknownTemplate: ShiftTemplate = {
   id: 1,
   name: 'Unknown Template',
