@@ -3,19 +3,6 @@
   [events]="events | async"
 >
   <ng-template #eventContent let-shift>
-    <div class="flex flex-col h-full">
-      <p><b>{{ shift.event.extendedProps['employee'].name }}</b></p>
-      <div class="flex gap-1 flex-wrap mb-4">
-        <i>{{ shift.event.extendedProps['template'].name }}</i>
-        <i>
-          ({{ shift.event.start | date: 'H:mm' }} -
-          {{ shift.event.end | date: 'H:mm' }})
-        </i>
-      </div>
-      <button (click)="removeShift(shift.event.id)"
-        class="btn-icon text-black mt-auto mb-1 ml-1 self-start">
-        <app-svg-icon [path]="'assets/trash.svg'"></app-svg-icon>
-      </button>
-    </div>
+    <app-event [shift]="shift" (remove)="removeShift($event)"></app-event>
   </ng-template>
 </full-calendar>

@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { reducers } from './state/reducers';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
+import { EventComponent } from './components/event/event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SvgIconComponent
+    SvgIconComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
