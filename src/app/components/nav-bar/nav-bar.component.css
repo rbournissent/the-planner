@@ -3,7 +3,7 @@ nav {
 }
 
 nav .links {
-  @apply font-medium
+  @apply font-medium flex gap-1
 }
 
 nav .links a {
