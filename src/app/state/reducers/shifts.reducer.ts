@@ -9,6 +9,12 @@ export const shiftsReducer = createReducer(
   on(ShiftsActions.fetchShifts, (_state, { shifts }): Shift[] => {
     return shifts
   }),
+  on(ShiftsActions.createShift, (state, { shift }): Shift[] => {
+    return [
+      ...state,
+      shift
+    ]
+  }),
   on(ShiftsActions.deleteShift, (state, { id }): Shift[] => {
     return state.filter(e => e.id !== id)
   }),
