@@ -48,11 +48,11 @@ Todo:
     ✔ Define new actions and update reducer @done(23-10-03 14:59)
     ✔ Create NavBar to navigate between the different routes @done(23-10-03 15:00)
     ✔ Update affected shifts from edit and delete operations @started(23-10-03 14:59) @done(23-10-03 15:07) @lasted(8m29s)
-  ☐ Create a CRUD for Templates (new module)
-    ☐ Define new actions and update reducer
+  ✔ Create a CRUD for Templates (new module) @done(23-10-03 15:59)
+    ✔ Define new actions and update reducer @done(23-10-03 15:59)
     ☐ Validation: Check for conflicts before edit
-    ☐ Update affected shifts from edit and delete operations
+    ✔ Update affected shifts from edit and delete operations @done(23-10-03 15:59)
   ✔ Support drag and drop (check if possible first) @started(23-10-03 14:22) @done(23-10-03 14:33) @lasted(12m)
-  ☐ Write some unit tests (critical methods and data)
+  ☐ Write some unit tests (critical methods and data) @started(23-10-03 15:59)
     ☐ Require tests to pass before build and deploy
 
