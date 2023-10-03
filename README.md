@@ -8,6 +8,10 @@ It uses localStorage to persist the changes.
 
 Try it out [here](https://the-planner-sb.web.app/).
 
+## Development
+
+Clone this repository and run `npm install` to install all the dependencies
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
