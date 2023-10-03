@@ -24,6 +24,6 @@ export const CALENDAR_OPTIONS:CalendarOptions = {
     day: 'Day',
     week: 'Week'
   },
-
+  eventMaxStack: 3,
   dragRevertDuration: 150
 }
