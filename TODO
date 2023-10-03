@@ -54,5 +54,5 @@ Todo:
     ✔ Update affected shifts from edit and delete operations @done(23-10-03 15:59)
   ✔ Support drag and drop (check if possible first) @started(23-10-03 14:22) @done(23-10-03 14:33) @lasted(12m)
   ☐ Write some unit tests (critical methods and data) @started(23-10-03 15:59)
-    ☐ Require tests to pass before build and deploy
+    ✔ Require tests to pass before build and deploy @done(23-10-03 16:20)
 
