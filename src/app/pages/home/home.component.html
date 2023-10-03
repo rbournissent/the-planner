@@ -1,1 +1,8 @@
-<full-calendar [options]="calendarOptions"></full-calendar>
+<full-calendar
+  [options]="calendarOptions"
+  [events]="events | async"
+>
+  <ng-template #eventContent let-shift>
+    <app-event [shift]="shift" (remove)="removeShift($event)"></app-event>
+  </ng-template>
+</full-calendar>

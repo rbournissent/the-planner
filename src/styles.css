@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+@layer components {
+  .btn-default,
+  .btn-primary,
+  .btn-icon {
+    @apply w-16 px-3 py-2 bg-slate-100 hover:bg-slate-300 transition-colors duration-200 rounded-sm
+  }
+  .btn-primary {
+    @apply w-auto text-gray-100 bg-slate-500 hover:text-white hover:bg-slate-900 transition-colors duration-200 disabled:bg-slate-300
+  }
+  .btn-icon {
+    @apply w-9 h-9 p-2
+  }
+}
