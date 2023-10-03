@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { HomeComponent } from './home.component';
 import { reducers } from 'src/app/state/reducers';
 import { SvgIconComponent } from 'src/app/components/svg-icon/svg-icon.component';
+import { EventComponent } from 'src/app/components/event/event.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -18,7 +19,8 @@ describe('HomeComponent', () => {
       ],
       declarations: [
         HomeComponent,
-        SvgIconComponent
+        SvgIconComponent,
+        EventComponent
       ]
     });
     fixture = TestBed.createComponent(HomeComponent);
