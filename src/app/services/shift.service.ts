@@ -12,6 +12,22 @@ import { ShiftsActions } from '../state/actions/shifts.actions';
 import { StoredShift } from '../models/stored-shift.model';
 import { selectShifts } from '../state/reducers';
 
+// TEMP
+const mockedShift:Shift = {
+  id: 1,
+  date: new Date('2023-10-3'),
+  employee: {
+    id: 1,
+    name: 'Rodrigo'
+  },
+  template: {
+    id: 1,
+    name: 'Morning',
+    startTime: new Date('2023-10-03 8:30'),
+    endTime: new Date('2023-10-03 14:30')
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,7 +59,7 @@ export class ShiftService {
         ShiftsActions.fetchShifts({
           shifts: shifts
             ? this.parseShifts(JSON.parse(shifts))
-            : []
+            : [mockedShift]
         })
       )
     } catch (e) {
