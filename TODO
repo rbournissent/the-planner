@@ -39,10 +39,10 @@ Todo:
   ✘ Update README @cancelled(23-10-03 14:20)
 
   -- NICE TO HAVE --
-  ☐ Improve UI/UX (if needed)
+  ✔ Improve UI/UX (if needed) @done(23-10-03 16:25)
     ✔ Better UI for inputs in form @started(23-10-03 14:09) @done(23-10-03 14:15) @lasted(6m11s)
-    ☐ Validate form with inline messages below inputs
-  ☐ Refactor code (if needed)
+    ✘ Validate form with inline messages below inputs @cancelled(23-10-03 16:25)
+  ✘ Refactor code (if needed) @cancelled(23-10-03 16:26)
   ✔ Create a CRUD for Employees (new module) @done(23-10-03 14:36)
     ng g m modules/Employees --routing --route=employees -m=app
     ✔ Define new actions and update reducer @done(23-10-03 14:59)
@@ -50,9 +50,19 @@ Todo:
     ✔ Update affected shifts from edit and delete operations @started(23-10-03 14:59) @done(23-10-03 15:07) @lasted(8m29s)
   ✔ Create a CRUD for Templates (new module) @done(23-10-03 15:59)
     ✔ Define new actions and update reducer @done(23-10-03 15:59)
-    ☐ Validation: Check for conflicts before edit
+    ✘ Validation: Check for conflicts before edit @cancelled(23-10-03 16:27)
     ✔ Update affected shifts from edit and delete operations @done(23-10-03 15:59)
   ✔ Support drag and drop (check if possible first) @started(23-10-03 14:22) @done(23-10-03 14:33) @lasted(12m)
-  ☐ Write some unit tests (critical methods and data) @started(23-10-03 15:59)
+  ✔ Write some unit tests (critical methods and data) @started(23-10-03 15:59) @done(23-10-03 16:25) @lasted(26m50s)
     ✔ Require tests to pass before build and deploy @done(23-10-03 16:20)
+
+  -- PENDING / FUTURE IMPROVEMENTS --
+  ☐ Template validation: Check for conflicts before edit
+  ☐ Increase code coverage with more unit tests
+    ☐ Prevent from deploying if a certain coverage treshold isn't reached (check.global in Karma)
+  ☐ Improve UI on mobile
+  ☐ Use Draggable functionality provided by FullCalendar to drag and drop employees
+    ☐ Generate template on the go if it doesn't exist
+  ☐ Better validation in forms
+  ☐ Better UI
 

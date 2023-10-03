@@ -1,6 +1,4 @@
-<form #shiftForm="ngForm"
-  (submit)="submit()"
-  class="min-w-[300px] bg-slate-700 rounded-md p-3 flex flex-col gap-6 text-white">
+<div class="min-w-[300px] bg-slate-700 rounded-md p-3 flex flex-col gap-6 text-white">
   <div class="flex gap-1 items-center">
     <h4 class="text-xl flex-1 mr-6">Schedule a new shift</h4>
     <button type="button" class="btn-icon" (click)="close()">
@@ -8,46 +6,51 @@
     </button>
   </div>
 
-  <div class="flex flex-col gap-1">
-    <label for="date">Date</label>
-    <input type="date" name="date" id="date"
-      [(ngModel)]="date"
-      class="text-slate-700" />
-  </div>
+  <form #shiftForm="ngForm"
+    *ngIf="canCreateShift"
+    (submit)="submit()"
+    class="flex flex-col gap-6">
+    <div class="flex flex-col gap-1">
+      <label for="date">Date</label>
+      <input type="date" name="date" id="date"
+        [(ngModel)]="date"
+        class="text-slate-700" />
+    </div>
 
-  <div class="flex flex-col gap-1">
-    <label for="employee">Employee</label>
-    <select name="employee" id="employee"
-      [(ngModel)]="employee"
-      class="text-slate-700">
-      <option *ngFor="let employee of employees" [ngValue]="employee">
-        {{ employee.name }}
-      </option>
-    </select>
-  </div>
+    <div class="flex flex-col gap-1">
+      <label for="employee">Employee</label>
+      <select name="employee" id="employee"
+        [(ngModel)]="employee"
+        class="text-slate-700">
+        <option *ngFor="let employee of employees" [ngValue]="employee">
+          {{ employee.name }}
+        </option>
+      </select>
+    </div>
 
-  <div class="flex flex-col gap-1">
-    <label for="template">Template</label>
-    <select name="template" id="template"
-      [(ngModel)]="template"
-      class="text-slate-700">
-      <option *ngFor="let template of templates" [ngValue]="template">
-        {{ template.name }}
-        <small>({{ template.startTime | date:'shortTime' }} - {{ template.endTime | date: 'shortTime' }})</small>
-      </option>
-    </select>
-  </div>
+    <div class="flex flex-col gap-1">
+      <label for="template">Template</label>
+      <select name="template" id="template"
+        [(ngModel)]="template"
+        class="text-slate-700">
+        <option *ngFor="let template of templates" [ngValue]="template">
+          {{ template.name }}
+          <small>({{ template.startTime | date:'shortTime' }} - {{ template.endTime | date: 'shortTime' }})</small>
+        </option>
+      </select>
+    </div>
+
+    <div class="text-right mt-3">
+      <button type="submit"
+        [disabled]="!date || !employee || !template"
+        class="btn-primary">
+        Schedule
+      </button>
+    </div>
+  </form>
 
   <p *ngIf="error"
     class="text-red-300 text-center">
     {{ error }}
   </p>
-
-  <div class="text-right mt-3">
-    <button type="submit"
-      [disabled]="!date || !employee || !template"
-      class="btn-primary">
-      Schedule
-    </button>
-  </div>
-</form>
+</div>
