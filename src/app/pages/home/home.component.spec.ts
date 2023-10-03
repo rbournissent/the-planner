@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { StoreModule } from '@ngrx/store';
 
 import { HomeComponent } from './home.component';
+import { reducers } from 'src/app/state/reducers';
+import { SvgIconComponent } from 'src/app/components/svg-icon/svg-icon.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +12,14 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent]
+      imports: [
+        FullCalendarModule,
+        StoreModule.forRoot(reducers),
+      ],
+      declarations: [
+        HomeComponent,
+        SvgIconComponent
+      ]
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
