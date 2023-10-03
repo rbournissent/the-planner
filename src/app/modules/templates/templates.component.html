@@ -1,0 +1,86 @@
+<main class="relative overflow-x-auto">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">
+          ID
+        </th>
+        <th scope="col">
+          Name
+        </th>
+        <th scope="col">
+          Start
+        </th>
+        <th scope="col">
+          End
+        </th>
+        <th scope="col">
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let template of templates | async">
+        <td>
+          {{ template.id }}
+        </td>
+        <td>
+          <span *ngIf="editingTemplateId !== template.id">
+            {{ template.name }}
+          </span>
+          <input *ngIf="editingTemplateId === template.id"
+            type="text"
+            [(ngModel)] = "editingTemplate.name"
+            placeholder="Template Name" />
+        </td>
+        <td>
+          <span *ngIf="editingTemplateId !== template.id">
+            {{ template.startTime | date:'shortTime' }}
+          </span>
+          <input *ngIf="editingTemplateId === template.id"
+            type="time"
+            [(ngModel)] = "editingTemplate.startTime"/>
+        </td>
+        <td>
+          <span *ngIf="editingTemplateId !== template.id">
+            {{ template.endTime | date:'shortTime' }}
+          </span>
+          <input *ngIf="editingTemplateId === template.id"
+            type="time"
+            [(ngModel)] = "editingTemplate.endTime"/>
+        </td>
+        <td class="flex gap-2">
+          <button class="btn-default" (click)="edit(template)">
+            Edit
+          </button>
+          <button class="btn-default" (click)="delete(template.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="text"
+            name="name"
+            [(ngModel)] = "newTemplate.name"
+            placeholder="Template Name" />
+        </td>
+        <td>
+          <input type="time"
+            name="startTime"
+            [(ngModel)] = "newTemplate.startTime" />
+        </td>
+        <td>
+          <input type="time"
+            name="endTime"
+            [(ngModel)] = "newTemplate.endTime" />
+        </td>
+        <td>
+          <button class="btn-default" (click)="add()">
+            Add
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>

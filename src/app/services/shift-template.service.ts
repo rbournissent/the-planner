@@ -7,13 +7,6 @@ import { selectTemplates } from '../state/reducers';
 import { ShiftTemplatesActions } from '../state/actions/shift-templates.actions';
 import { StoredShiftTemplate } from '../models/stored-shift-template.model';
 
-const mockedTemplate: ShiftTemplate = {
-  id: 1,
-  name: 'Morning',
-  startTime: new Date('2023-10-03 8:30'),
-  endTime: new Date('2023-10-03 14:30')
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -31,7 +24,7 @@ export class ShiftTemplateService {
         ShiftTemplatesActions.fetchShiftTemplates({
           templates: templates
             ? JSON.parse(templates).map(this.parseStoredTemplate)
-            : [mockedTemplate]
+            : []
         })
       )
 
