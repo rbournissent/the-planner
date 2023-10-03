@@ -1,8 +1,8 @@
 <form #shiftForm="ngForm"
   (submit)="submit()"
-  class="bg-slate-700 rounded-md p-3 flex flex-col gap-2 text-white">
+  class="min-w-[300px] bg-slate-700 rounded-md p-3 flex flex-col gap-6 text-white">
   <div class="flex gap-1 items-center">
-    <h4 class="text-xl flex-1">Schedule a new shift</h4>
+    <h4 class="text-xl flex-1 mr-6">Schedule a new shift</h4>
     <button type="button" class="btn-icon" (click)="close()">
       <app-svg-icon [path]="'assets/x.svg'"></app-svg-icon>
     </button>
@@ -39,11 +39,11 @@
   </div>
 
   <p *ngIf="error"
-    class="text-red-400 mt-2 text-center">
+    class="text-red-300 text-center">
     {{ error }}
   </p>
 
-  <div class="text-right mt-2">
+  <div class="text-right mt-3">
     <button type="submit"
       [disabled]="!date || !employee || !template"
       class="btn-primary">

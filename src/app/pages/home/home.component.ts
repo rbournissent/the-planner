@@ -9,6 +9,7 @@ import { ComponentPortal } from '@angular/cdk/portal'
 import { CALENDAR_OPTIONS } from './../../consts';
 import { ShiftService } from 'src/app/services/shift.service';
 import { ShiftFormComponent } from 'src/app/components/shift-form/shift-form.component';
+import { Shift } from 'src/app/models/shift.model';
 
 @Component({
   selector: 'app-home',
@@ -46,7 +47,7 @@ export class HomeComponent implements OnDestroy {
       interactionPlugin,
       timeGridPlugin
     ],
-    // TODO: Validate shift change on drop or remove functionality
+    // Always keep same start and end times (as stated in template)
     eventAllow: (droppedSpan, event) => {
       if (!event || !event.start || !event.end) return false
 
@@ -54,6 +55,25 @@ export class HomeComponent implements OnDestroy {
 
       return droppedSpan.start.toTimeString() === start.toTimeString() &&
         droppedSpan.end.toTimeString() === end.toTimeString()
+    },
+    // Allow drag and drop to modify a shift
+    eventDrop: (dropInfo) => {
+      const { event, revert } = dropInfo
+      // Create new shift
+      const shiftId = parseInt(event.id)
+      const shift: Shift = {
+        id: shiftId,
+        date: event.start || new Date(),
+        template: event.extendedProps['template'],
+        employee: event.extendedProps['employee']
+      }
+
+      if (this.shiftService.canBeSaved(shift)) {
+        this.shiftService.editShift(shiftId, shift)
+      } else {
+        // Rollback
+        revert()
+      }
     },
     // Add Schedule Shift button in the footer toolbar
     customButtons: {
