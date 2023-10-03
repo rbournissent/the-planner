@@ -10,5 +10,10 @@ export const ShiftsActions = createActionGroup({
     'Create Shift': props<{ shift: Shift }>(),
     'Update Shift': props<{ id: Shift['id'], shift: Shift }>(),
     'Delete Shift': props<{ id: Shift['id'] }>(),
+    'Update Employee': props<{
+      currentEmployeeId: Employee['id'],
+      newEmployee: Employee
+    }>(),
+    'Delete Shifts by Employee': props<{ id: Employee['id'] }>(),
   }
 })

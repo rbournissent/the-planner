@@ -1,0 +1,15 @@
+nav {
+  @apply bg-white border-gray-200
+}
+
+nav .links {
+  @apply font-medium
+}
+
+nav .links a {
+  @apply block py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700
+}
+
+nav .links a.active {
+  @apply text-white md:text-blue-700
+}

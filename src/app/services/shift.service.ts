@@ -93,9 +93,21 @@ export class ShiftService {
     )
   }
 
+  updateEmployee(currentEmployeeId: Employee['id'], newEmployee: Employee) {
+    this.store.dispatch(
+      ShiftsActions.updateEmployee({ currentEmployeeId, newEmployee })
+    )
+  }
+
   removeShift (id: number) {
     this.store.dispatch(
       ShiftsActions.deleteShift({ id })
+    )
+  }
+
+  removeByEmployee(id: Employee['id']) {
+    this.store.dispatch(
+      ShiftsActions.deleteShiftsByEmployee({ id })
     )
   }
 
@@ -124,6 +136,12 @@ export class ShiftService {
         shift.employee.id === s.employee.id &&
         (shift.template.id === s.template.id ||
           rangeConflict(shift.template, s.template))
+    })
+  }
+
+  employeeHasShifts (employeeId: Employee['id']): boolean {
+    return this.shifts.some(s => {
+      return s.employee.id === employeeId
     })
   }
 

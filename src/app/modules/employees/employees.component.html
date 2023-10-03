@@ -1,0 +1,48 @@
+<main class="relative overflow-x-auto">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">
+          ID
+        </th>
+        <th scope="col">
+          Name
+        </th>
+        <th scope="col">
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees | async">
+        <td>
+          {{ employee.id }}
+        </td>
+        <td>
+          {{ employee.name }}
+        </td>
+        <td class="flex gap-2">
+          <button class="btn-default" (click)="edit(employee)">
+            Edit
+          </button>
+          <button class="btn-default" (click)="delete(employee.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="text"
+            name="newEmployee"
+            [(ngModel)] = "newEmployee"
+            placeholder="New Employee" />
+        </td>
+        <td>
+          <button class="btn-default" (click)="add()">
+            Add
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
