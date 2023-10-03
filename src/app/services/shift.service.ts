@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { EventInput } from '@fullcalendar/core';
 
 import { Shift } from '../models/shift.model';
 import { Employee, UnknownEmployee } from '../models/employee.model';
@@ -71,5 +72,23 @@ export class ShiftService {
     this.store.dispatch(
       ShiftsActions.deleteShift({ id })
     )
+  }
+
+  shiftAsEventInput(shift: Shift): EventInput {
+    // Set start and end dates with times from template
+    const { startTime, endTime } = shift.template
+    const start = new Date(shift.date)
+      .setHours(startTime.getHours(), startTime.getMinutes(), 0)
+    const end = new Date (shift.date)
+      .setHours(endTime.getHours(), endTime.getMinutes(), 0)
+
+    return {
+      id: shift.id.toString(),
+      title: `${shift.employee.name} | ${shift.template.name}`,
+      template: shift.template,
+      employee: shift.employee,
+      start,
+      end
+    }
   }
 }
