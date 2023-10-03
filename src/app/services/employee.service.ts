@@ -6,12 +6,6 @@ import { Employee } from '../models/employee.model';
 import { selectEmployees } from '../state/reducers';
 import { EmployeesActions } from '../state/actions/employees.actions';
 
-// TEMP
-const mockedEmployee: Employee = {
-  id: 1,
-  name: 'Rodrigo'
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +21,7 @@ export class EmployeeService {
     try {
       const parsedEmployees = employees
         ? JSON.parse(employees)
-        : [mockedEmployee]
+        : []
       this.store.dispatch(
         EmployeesActions.fetchEmployees({ employees: parsedEmployees })
       )
