@@ -43,9 +43,11 @@ Todo:
     ✔ Better UI for inputs in form @started(23-10-03 14:09) @done(23-10-03 14:15) @lasted(6m11s)
     ☐ Validate form with inline messages below inputs
   ☐ Refactor code (if needed)
-  ☐ Create a CRUD for Employees (new module)
-    ☐ Define new actions and update reducer
-    ☐ Update affected shifts from edit and delete operations
+  ✔ Create a CRUD for Employees (new module) @done(23-10-03 14:36)
+    ng g m modules/Employees --routing --route=employees -m=app
+    ✔ Define new actions and update reducer @done(23-10-03 14:59)
+    ✔ Create NavBar to navigate between the different routes @done(23-10-03 15:00)
+    ✔ Update affected shifts from edit and delete operations @started(23-10-03 14:59) @done(23-10-03 15:07) @lasted(8m29s)
   ☐ Create a CRUD for Templates (new module)
     ☐ Define new actions and update reducer
     ☐ Validation: Check for conflicts before edit
