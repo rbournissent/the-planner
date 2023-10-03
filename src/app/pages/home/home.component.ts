@@ -39,6 +39,12 @@ export class HomeComponent implements OnDestroy {
     },
   };
 
+  removeShift(id?: string) {
+    if (id) {
+      this.shiftService.removeShift(parseInt(id))
+    }
+  }
+
   ngOnDestroy () {
     if (this.shiftsSub) {
       this.shiftsSub.unsubscribe()
