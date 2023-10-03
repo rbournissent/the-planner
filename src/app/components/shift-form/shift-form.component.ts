@@ -25,6 +25,7 @@ export class ShiftFormComponent implements OnDestroy {
   template?: ShiftTemplate
 
   error = ''
+  canCreateShift = true
 
   constructor(
     employeeService: EmployeeService,
@@ -33,9 +34,11 @@ export class ShiftFormComponent implements OnDestroy {
   ) {
     this.subs.push(employeeService.employees$.subscribe(employees => {
       this.employees = employees
+      this.updateCanCreateShift()
     }))
     this.subs.push(templateService.templates$.subscribe(templates => {
       this.templates = templates
+      this.updateCanCreateShift()
     }))
   }
 
@@ -67,6 +70,16 @@ export class ShiftFormComponent implements OnDestroy {
       } else {
         this.error = 'Employee is busy at this time'
       }
+    }
+  }
+
+  updateCanCreateShift () {
+    this.canCreateShift = !!this.templates.length &&
+      !!this.employees.length
+    this.error = ''
+
+    if (!this.canCreateShift) {
+      this.error = 'You need at least one Template and at least one Employee to schedule a shift'
     }
   }
 }
