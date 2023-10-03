@@ -127,6 +127,12 @@ export class ShiftService {
     })
   }
 
+  employeeHasShifts (employeeId: Employee['id']): boolean {
+    return this.shifts.some(s => {
+      return s.employee.id === employeeId
+    })
+  }
+
   private storeShifts (shifts: ReadonlyArray<Shift>) {
     const unparsedShifts: StoredShift[] = shifts
       .map(shift => ({
