@@ -14,6 +14,7 @@ import { reducers } from './state/reducers';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { EventComponent } from './components/event/event.component';
 import { ShiftFormComponent } from './components/shift-form/shift-form.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ShiftFormComponent } from './components/shift-form/shift-form.component
     HomeComponent,
     SvgIconComponent,
     EventComponent,
-    ShiftFormComponent
+    ShiftFormComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

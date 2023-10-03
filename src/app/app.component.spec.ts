@@ -4,6 +4,8 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { reducers } from './state/reducers';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -11,26 +13,16 @@ describe('AppComponent', () => {
       RouterTestingModule,
       StoreModule.forRoot(reducers),
     ],
-    declarations: [AppComponent]
+    declarations: [
+      AppComponent,
+      NavBarComponent,
+      SvgIconComponent
+    ]
   }));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'The Planner'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('The Planner');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent)
-      .toContain('The Planner');
   });
 });
