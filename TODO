@@ -1,0 +1,52 @@
+
+Todo:
+  ✔ Init Angular App @done(23-10-03 09:47)
+  ng new planner --routing
+  ☐ Add and configure Firebase (Hosting) @started(23-10-03 09:47)
+    firebase init
+    ☐ Setup GH Actions
+    ☐ Customize domain
+  ☐ Setup linter
+    ng lint
+  ☐ Add Tailwind
+    npm i -D tailwindcss
+    npx tailwindcss init
+
+  ☐ Find a library that provides a calendar view with week (and day) view support
+    ☐ Or create a basic UI with 7 columns listing the shifts for each day (sorted by startTime) instead
+
+  ☐ Add NgRx
+    ng add @ngrx/store@latest --no-minimal
+  ☐ Define main models (Shift, ShiftTemplate and Employee)
+  ☐ Create a service to get employees
+    ☐ Define action and reducer
+  ☐ Create a service to get templates
+    ☐ Define action and reducer
+  ☐ Create a service to get and remove shifts
+    ☐ Map employees and templates inside shifts (join by id)
+    ☐ Define actions and reducer
+
+  ☐ Render shifts in the week view
+    ☐ Support remove shifts
+
+  ☐ Create Modal to plan a scheduled item (aka shift)
+    ☐ Use Overlay from Angular CDK
+
+  ☐ Deploy app to Firebase
+
+  ☐ Update README
+
+  -- NICE TO HAVE --
+  ☐ Improve UI/UX (if needed)
+  ☐ Refactor code (if needed)
+  ☐ Create a CRUD for Employees (new module)
+    ☐ Define new actions and update reducer
+    ☐ Update affected shifts from edit and delete operations
+  ☐ Create a CRUD for Templates (new module)
+    ☐ Define new actions and update reducer
+    ☐ Validation: Check for conflicts before edit
+    ☐ Update affected shifts from edit and delete operations
+  ☐ Support drag and drop (check if possible first)
+  ☐ Write some unit tests (critical methods and data)
+    ☐ Require tests to pass before build and deploy
+
